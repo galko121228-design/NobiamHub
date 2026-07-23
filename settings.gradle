@@ -11,19 +11,22 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
+
 dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.PREFER_PROJECT)
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
     repositories {
         google()
         mavenCentral()
+        
+        // JitPack — для xCrash и других GitHub-библиотек
         maven { url 'https://jitpack.io' }
-        maven { url "https://repo.opencollab.dev/maven-snapshots" }
-        maven { url "https://repo.opencollab.dev/maven-releases" }
-        // Добавляем репозиторий для xCrash (если он не находит)
-        maven { url 'https://raw.githubusercontent.com/RadiantByte/maven-repo/main' }
+        
+        // OpenCollab — для bedrock-connection
+        maven { url 'https://repo.opencollab.dev/maven-releases/' }
+        maven { url 'https://repo.opencollab.dev/maven-snapshots/' }
     }
 }
 
-rootProject.name = "levilauncher"
+rootProject.name = "NobiamHub"
 include ':app'
 include ':minecraft'
