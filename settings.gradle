@@ -12,13 +12,14 @@ pluginManagement {
     }
 }
 dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    // Меняем режим на PREFER_PROJECT, чтобы разрешить репозитории из build.gradle
+    repositoriesMode.set(RepositoriesMode.PREFER_PROJECT)
     repositories {
         google()
         mavenCentral()
         maven { url 'https://jitpack.io' }
-        maven{url "https://repo.opencollab.dev/maven-snapshots"}
-        maven{url "https://repo.opencollab.dev/maven-releases"}
+        maven { url "https://repo.opencollab.dev/maven-snapshots" }
+        maven { url "https://repo.opencollab.dev/maven-releases" }
     }
 }
 
