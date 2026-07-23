@@ -131,7 +131,6 @@ public class HardwareInformation {
     }
 
     public String getAndroidVersion() {
-        if (((MainActivity) context).isChromebook()) {
             return "ChromeOS " + Build.VERSION.RELEASE;
         }
         return "Android " + Build.VERSION.RELEASE;
