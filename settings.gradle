@@ -12,7 +12,6 @@ pluginManagement {
     }
 }
 dependencyResolutionManagement {
-    // Меняем режим на PREFER_PROJECT, чтобы разрешить репозитории из build.gradle
     repositoriesMode.set(RepositoriesMode.PREFER_PROJECT)
     repositories {
         google()
@@ -20,6 +19,8 @@ dependencyResolutionManagement {
         maven { url 'https://jitpack.io' }
         maven { url "https://repo.opencollab.dev/maven-snapshots" }
         maven { url "https://repo.opencollab.dev/maven-releases" }
+        // Добавляем репозиторий для xCrash (если он не находит)
+        maven { url 'https://raw.githubusercontent.com/RadiantByte/maven-repo/main' }
     }
 }
 
