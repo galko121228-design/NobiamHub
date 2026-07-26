@@ -15,7 +15,7 @@
     <color name="on_error">#FFFFFF</color>
 
     <color name="background">#FFFFFF</color>
-    <color name="surface">#F1F8E9</color>
+    <color name="surface">#FFFFFF</color>
     <color name="surface_variant">#E8F5E9</color>
     <color name="on_background">#212121</color>
     <color name="on_surface">#212121</color>
