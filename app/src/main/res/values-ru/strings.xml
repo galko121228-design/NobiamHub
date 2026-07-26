@@ -1,6 +1,6 @@
 <resources>
     <!-- Общее -->
-    <string name="app_name">LeviLauncher</string>
+    <string name="app_name">Nobiam</string>
     <string name="minecraft">Minecraft</string>
     <string name="launch">Запустить</string>
     <string name="beta_badge">Бета</string>
@@ -49,7 +49,7 @@
 
     <!-- Разрешения -->
     <string name="storage_permission_title">Разрешение для миграции хранилища</string>
-    <string name="storage_permission_message">Предоставьте доступ к хранилищу, чтобы LeviLauncher мог скопировать данные из старой папки games/org.levimc. Это разрешение нужно только для миграции.</string>
+    <string name="storage_permission_message">Предоставьте доступ к хранилищу, чтобы Nobiam мог скопировать данные из старой папки games/org.levimc. Это разрешение нужно только для миграции.</string>
     <string name="grant_permission">Выдать</string>
     <string name="cancel">Отмена</string>
 
@@ -142,7 +142,7 @@
     <string name="repair_processing">Извлечение библиотек…</string>
     <string name="repair_finalizing">Завершение восстановления…</string>
     <string name="storage_migration_title">Требуется миграция хранилища</string>
-    <string name="storage_migration_message">LeviLauncher должен перенести данные из games/org.levimc в %1$s перед продолжением.
+    <string name="storage_migration_message">Nobiam должен перенести данные из games/org.levimc в %1$s перед продолжением.
 
 Это изменение хранилища необходимо для соответствия требованиям публикации в Google Play. Старая папка останется нетронутой, но после миграции больше не будет использоваться.
 
@@ -164,11 +164,11 @@
 
 Старая папка games/org.levimc не была удалена и больше не используется.</string>
     <string name="storage_migration_partial_title">Миграция не завершена</string>
-    <string name="storage_migration_partial_message">Не удалось скопировать %1$d из %2$d файлов. Миграция должна завершиться, прежде чем LeviLauncher сможет продолжить.</string>
+    <string name="storage_migration_partial_message">Не удалось скопировать %1$d из %2$d файлов. Миграция должна завершиться, прежде чем Nobiam сможет продолжить.</string>
     <string name="storage_migration_failed_title">Ошибка миграции</string>
     <string name="storage_migration_failed_message">Миграция не может продолжиться: %1$s
 
-Миграция должна завершиться, прежде чем LeviLauncher сможет продолжить.</string>
+Миграция должна завершиться, прежде чем Nobiam сможет продолжить.</string>
     <string name="migration_cleanup_title">Очистить исторический каталог</string>
     <string name="migration_cleanup_desc">Удаляйте старый каталог games/org.levimc только после того, как убедитесь, что все экземпляры запускаются нормально, а миры, наборы ресурсов, наборы поведения и настройки не пропали. Удалённые исторические данные нельзя будет восстановить из этого каталога.</string>
     <string name="migration_cleanup_button">Очистить исторический каталог</string>
@@ -193,8 +193,8 @@
 
     <string name="error_no_browser">Браузер не доступен</string>
 
-    <string name="eula_title">Лицензионное соглашение LeviLauncher</string>
-    <string name="eula_message"><b>Добро пожаловать в LeviLauncher</b>\n\nПри использовании данной программы вы соглашаетесь с тем что:\n\n• Это <b>неофициальный</b> лаунчер Minecraft\n• Вам необходимо владеть <b>лицензионной</b> копией Minecraft\n• Любая форма пиратства и читов запрещена\n• Моды/наборы ресурсов используются на ваш риск\n• Не связано с Mojang/Microsoft\n\nДальнейшее использование означает согласие с лицензионным соглашением</string>
+    <string name="eula_title">Лицензионное соглашение Nobiam</string>
+    <string name="eula_message"><b>Добро пожаловать в Nobiam</b>\n\nПри использовании данной программы вы соглашаетесь с тем что:\n\n• Это <b>неофициальный</b> лаунчер Minecraft\n• Вам необходимо владеть <b>лицензионной</b> копией Minecraft\n• Любая форма пиратства и читов запрещена\n• Моды/наборы ресурсов используются на ваш риск\n• Не связано с Mojang/Microsoft\n\nДальнейшее использование означает согласие с лицензионным соглашением</string>
     <string name="eula_agree">Принять</string>
     <string name="eula_exit">Отклонить</string>
 
@@ -395,7 +395,7 @@
     <string name="ms_active_badge">Активный</string>
     <string name="ms_account_subtitle_format">ID пользователя: %1$s • Обновлено: %2$s</string>
     <string name="xbox_avatar">Аватар Xbox</string>
-    <string name="launcher_managed_mc_login">Войти в Minecraft с помощью LeviLauncher</string>
+    <string name="launcher_managed_mc_login">Войти в Minecraft с помощью Nobiam</string>
     <string name="dialog_title_login_required">Требуется вход</string>
     <string name="dialog_message_login_required">Включён вход через лаунчер, но ни один аккаунт не авторизован. Перейдите в «Аккаунты», чтобы войти.</string>
     <string name="go_to_accounts">Аккаунты</string>
@@ -670,24 +670,24 @@
     <string name="tag_custom">Пользовательская</string>
     <string name="vanilla_prefix">Vanilla %s</string>
     <string name="about_page_title">О приложении</string>
-    <string name="about_subtitle">LeviLauncher — современный лаунчер Minecraft Bedrock</string>
+    <string name="about_subtitle">Nobiam — современный лаунчер Minecraft Bedrock</string>
     <string name="about_authors_title">👥 Авторы и сопровождающие</string>
     <string name="about_author_name">DreamGuXiang</string>
     <string name="about_author_badge">Автор</string>
-    <string name="about_author_role">Авторы LeviLauncher</string>
+    <string name="about_author_role">Авторы Nobiam</string>
     <string name="about_afdian">Afdian</string>
     <string name="about_patreon">Patreon</string>
     <string name="about_source_title">Исходный код и открытый исходный код</string>
-    <string name="about_github_repo">GitHub · LeviLauncher</string>
+    <string name="about_github_repo">GitHub · Nobiam</string>
     <string name="about_github_org">LiteLDev</string>
     <string name="about_license_note">Подробности лицензии смотрите в файле LICENSE в репозитории.</string>
     <string name="about_contribute_title">Участие в разработке</string>
-    <string name="about_contribute_desc">Вклад через Issues или Pull Requests приветствуется и помогает улучшать LeviLauncher.</string>
+    <string name="about_contribute_desc">Вклад через Issues или Pull Requests приветствуется и помогает улучшать Nobiam.</string>
     <string name="about_issues">Issue</string>
     <string name="about_star_fork">Star / Fork</string>
     <string-array name="launcher_tips">
         <item>В настройках можно изменить тему, цвет, фон и другие параметры внешнего вида под ваш стиль.</item>
-        <item>LeviLauncher имеет открытый исходный код. Используйте GitHub issues, чтобы сообщить о проблемах лаунчера или предложить улучшения.</item>
+        <item>Nobiam имеет открытый исходный код. Используйте GitHub issues, чтобы сообщить о проблемах лаунчера или предложить улучшения.</item>
         <item>Используйте выпадающий список версий, чтобы быстро переключать текущий экземпляр.</item>
         <item>Кто-нибудь вообще читает эти подсказки?</item>
         <item>Вы можете перетаскивать моды, чтобы менять их приоритет загрузки.</item>
