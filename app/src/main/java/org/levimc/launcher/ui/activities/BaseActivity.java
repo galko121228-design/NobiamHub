@@ -149,7 +149,7 @@ public class BaseActivity extends AppCompatActivity {
 
     private void setupBaseNavBar() {
         int[] tabIds = {
-            R.id.nav_tab_launch, R.id.nav_tab_instances,
+            R.id.nav_tab_launch,
             R.id.nav_tab_about, R.id.nav_tab_settings
         };
 
@@ -206,9 +206,6 @@ public class BaseActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        findViewById(R.id.nav_tab_instances).setOnClickListener(v -> {
-            if (!(this instanceof InstancesActivity)) {
-                startActivity(new Intent(this, InstancesActivity.class));
             }
         });
         findViewById(R.id.nav_tab_about).setOnClickListener(v -> {
@@ -358,7 +355,7 @@ public class BaseActivity extends AppCompatActivity {
     protected void setActiveNavTab(int activeTabId) {
         if (!navBarInjected) return;
         int[] tabIds = {
-            R.id.nav_tab_launch, R.id.nav_tab_instances,
+            R.id.nav_tab_launch,
             R.id.nav_tab_about, R.id.nav_tab_settings
         };
 
