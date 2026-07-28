@@ -39,4 +39,5 @@
     <color name="ic_launcher_adaptive_back">#F6F3EA</color>
     <color name="nav_pill_bg">#F0F0F0</color>
     <color name="nav_indicator">#FFFFFF</color>
+    <color name="levi_bg">#FFFFFF</color>
 </resources>

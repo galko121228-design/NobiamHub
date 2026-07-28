@@ -26,25 +26,37 @@
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowActionBar">false</item>
         <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">@color/levi_bg</item>
+        <item name="android:windowAnimationStyle">@style/Anim.None</item>
+        <item name="android:windowContentTransitions">false</item>
+        <item name="android:windowActivityTransitions">false</item>
 
     </style>
 
     <style name="MinecraftLoadingTheme" parent="Base.Theme.FullScreen">
-        <item name="android:windowDisablePreview">true</item>
         <item name="android:navigationBarColor">@android:color/transparent</item>
         <item name="android:windowLightNavigationBar">false</item>
     </style>
 
     <style name="MainActivityTheme" parent="Base.Theme.FullScreen">
-        <item name="android:windowDisablePreview">true</item>
     </style>
 
     <style name="LauncherRestartTheme" parent="Base.Theme.FullScreen">
         <item name="android:fontFamily">@font/misans</item>
         <item name="android:windowBackground">@color/background</item>
-        <item name="android:windowDisablePreview">true</item>
         <item name="android:windowAnimationStyle">@null</item>
         <item name="android:windowContentTransitions">false</item>
     </style>
 
 </resources>
+
+    <style name="Anim.None" parent="@android:style/Animation">
+        <item name="android:activityOpenEnterAnimation">@null</item>
+        <item name="android:activityOpenExitAnimation">@null</item>
+        <item name="android:activityCloseEnterAnimation">@null</item>
+        <item name="android:activityCloseExitAnimation">@null</item>
+        <item name="android:taskOpenEnterAnimation">@null</item>
+        <item name="android:taskOpenExitAnimation">@null</item>
+        <item name="android:taskCloseEnterAnimation">@null</item>
+        <item name="android:taskCloseExitAnimation">@null</item>
+    </style>
