@@ -1,3 +1,4 @@
+import androidx.core.widget.TextViewCompat;
 package org.levimc.launcher.ui.activities;
 
 import android.content.Intent;
