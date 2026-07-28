@@ -1,4 +1,3 @@
-import androidx.core.widget.TextViewCompat;
 package org.levimc.launcher.ui.activities;
 
 import android.content.Intent;
@@ -30,6 +29,7 @@ import com.google.android.material.switchmaterial.SwitchMaterial;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.core.widget.TextViewCompat;
 
 import org.levimc.launcher.R;
 import org.levimc.launcher.core.crash.CrashReporter;
@@ -221,8 +221,8 @@ public class SettingsActivity extends BaseActivity {
                 getString(R.string.french),
                 getString(R.string.japanese),
                 getString(R.string.hindi),
-		        getString(R.string.turkish),
-			    getString(R.string.vietnamese)
+        getString(R.string.turkish),
+    getString(R.string.vietnamese)
         };
 
         String currentCode = languageManager.getCurrentLanguage();
@@ -235,8 +235,8 @@ public class SettingsActivity extends BaseActivity {
             case "fr" -> 6;
             case "ja" -> 7;
             case "hi" -> 8;
-	        case "tr", "tr-TR" -> 9;
-			case "vi" -> 10;
+        case "tr", "tr-TR" -> 9;
+case "vi" -> 10;
             default -> 0;
         };
 
@@ -261,8 +261,8 @@ public class SettingsActivity extends BaseActivity {
                     case 6 -> "fr";
                     case 7 -> "ja";
                     case 8 -> "hi";
-		            case 9 -> "tr";
-					case 10 -> "vi";
+            case 9 -> "tr";
+case 10 -> "vi";
                     default -> "en";
                 };
                 if (!code.equals(languageManager.getCurrentLanguage())) {
@@ -530,9 +530,12 @@ public class SettingsActivity extends BaseActivity {
         for (int id : navTabIds) {
             View navTab = findViewById(id);
             if (navTab != null && id == R.id.nav_tab_settings && accent != 0) {
-                if (navTab instanceof TextView) ((TextView) navTab).setTextColor(accent);
-                if (navTab instanceof TextView) ((TextView) navTab).setTypeface(((TextView) navTab).getTypeface(), android.graphics.Typeface.BOLD);
-                if (navTab instanceof TextView) TextViewCompat.setCompoundDrawableTintList(((TextView) navTab), ColorStateList.valueOf(accent));
+                if (navTab instanceof TextView) {
+                    TextView tv = (TextView) navTab;
+                    tv.setTextColor(accent);
+                    tv.setTypeface(tv.getTypeface(), android.graphics.Typeface.BOLD);
+                    TextViewCompat.setCompoundDrawableTintList(tv, ColorStateList.valueOf(accent));
+                }
             }
         }
     }
@@ -673,8 +676,6 @@ public class SettingsActivity extends BaseActivity {
             if (btnClear != null) btnClear.setVisibility(View.GONE);
         }
     }
-
-
 
     private void setupUpdatesSection() {
         try {
