@@ -156,14 +156,11 @@ public class BaseActivity extends AppCompatActivity {
         int accent = pm.getAccentColor();
 
         for (int id : tabIds) {
-            TextView tab = findViewById(id);
+            View tab = findViewById(id);
             if (!(tab instanceof TextView)) continue;
             if (tab == null) continue;
             int color = getResources().getColor(R.color.text_secondary, getTheme());
-            tab.setTextColor(color);
-            tab.setTypeface(tab.getTypeface(), android.graphics.Typeface.NORMAL);
-            TextViewCompat.setCompoundDrawableTintList(tab, ColorStateList.valueOf(color));
-        }
+                                            }
 
         if (pm.hasBackgroundImage()) {
             View navRoot = findViewById(R.id.nav_bar_root);
@@ -369,21 +366,17 @@ public class BaseActivity extends AppCompatActivity {
         int accent = pm.getAccentColor();
 
         for (int id : tabIds) {
-            TextView tab = findViewById(id);
+            View tab = findViewById(id);
             if (!(tab instanceof TextView)) continue;
             if (tab == null) continue;
             int color;
             if (id == activeTabId) {
                 color = accent != 0 ? accent : getResources().getColor(R.color.on_surface, getTheme());
-                tab.setTextColor(color);
-                tab.setTypeface(tab.getTypeface(), android.graphics.Typeface.BOLD);
+                                tab.setTypeface(tab.getTypeface(), android.graphics.Typeface.BOLD);
             } else {
                 color = getResources().getColor(R.color.text_secondary, getTheme());
-                tab.setTextColor(color);
-                tab.setTypeface(tab.getTypeface(), android.graphics.Typeface.NORMAL);
-            }
-            TextViewCompat.setCompoundDrawableTintList(tab, ColorStateList.valueOf(color));
-        }
+                                            }
+                    }
     }
 
     @Override
