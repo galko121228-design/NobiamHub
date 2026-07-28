@@ -20,7 +20,7 @@
     <TextView android:id="@+id/nav_tab_instances" android:layout_width="0dp" android:layout_height="0dp" android:visibility="gone" />
     <View android:id="@+id/nav_divider" android:layout_width="0dp" android:layout_height="0dp" android:visibility="gone" />
 
-    <!-- Логотип + название -->
+    <!-- Логотип + название (слева) -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -45,18 +45,19 @@
             android:textStyle="bold" />
     </LinearLayout>
 
-    <!-- Навигационная капсула с индикатором -->
+    <!-- ПУСТОЕ ПРОСТРАНСТВО СЛЕВА ОТ КАПСУЛЫ -->
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!-- Навигационная капсула (по центру) -->
     <FrameLayout
-            android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        
-        android:layout_marginHorizontal="16dp"
         android:background="@drawable/nav_pill_bg_shape"
         android:clipToOutline="true"
         android:outlineProvider="background">
-
-        <!-- Скользящий индикатор -->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -65,9 +66,8 @@
 
             <ImageView
                 android:id="@+id/nav_tab_launch"
-                android:layout_width="0dp"
+                android:layout_width="44dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:src="@drawable/ic_home"
                 android:padding="10dp"
                 android:clickable="true"
@@ -76,9 +76,8 @@
 
             <ImageView
                 android:id="@+id/nav_tab_settings"
-                android:layout_width="0dp"
+                android:layout_width="44dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:src="@drawable/ic_settings"
                 android:padding="10dp"
                 android:clickable="true"
@@ -87,9 +86,8 @@
 
             <ImageView
                 android:id="@+id/nav_tab_about"
-                android:layout_width="0dp"
+                android:layout_width="44dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:src="@drawable/ic_about"
                 android:padding="10dp"
                 android:clickable="true"
@@ -98,58 +96,33 @@
         </LinearLayout>
     </FrameLayout>
 
-    <!-- Sign In + Аватар -->
-    <LinearLayout
+    <!-- ПУСТОЕ ПРОСТРАНСТВО СПРАВА ОТ КАПСУЛЫ -->
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!-- Sign In (справа) -->
+    <Button
+        android:id="@+id/nav_sign_in_button"
+        style="@style/Widget.MaterialComponents.Button"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/nav_sign_in_button"
-            style="@style/Widget.MaterialComponents.Button"
-            android:layout_width="wrap_content"
-            android:layout_height="28dp"
-            android:minWidth="0dp"
-            android:minHeight="0dp"
-            android:paddingHorizontal="12dp"
-            android:paddingVertical="0dp"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:fontFamily="@font/misans"
-            android:gravity="center"
-            android:includeFontPadding="false"
-            android:backgroundTint="@color/primary"
-            android:text="@string/sign_in"
-            android:textColor="@color/on_primary"
-            android:textSize="11sp"
-            android:textStyle="bold"
-            android:textAllCaps="false"
-            android:visibility="gone" />
-
-        <FrameLayout
-            android:layout_gravity="center"
-            android:id="@+id/nav_account_avatar_container"
-            android:layout_width="wrap_content"
-            android:layout_height="32dp"
-            android:visibility="gone">
-
-            <com.microsoft.xbox.idp.toolkit.CircleImageView
-                android:id="@+id/nav_account_avatar"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:contentDescription="@string/xbox_avatar"
-                android:scaleType="centerCrop"
-                android:src="@drawable/ic_minecraft_cube" />
-
-            <ProgressBar
-                android:id="@+id/nav_avatar_progress"
-                style="?android:attr/progressBarStyleSmall"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:indeterminate="true"
-                android:visibility="gone" />
-        </FrameLayout>
-    </LinearLayout>
+        android:layout_height="28dp"
+        android:minWidth="0dp"
+        android:minHeight="0dp"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="0dp"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:fontFamily="@font/misans"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:backgroundTint="@color/primary"
+        android:text="@string/sign_in"
+        android:textColor="@color/on_primary"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:visibility="gone" />
 
 </LinearLayout>
