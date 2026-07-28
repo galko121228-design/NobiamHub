@@ -372,7 +372,7 @@ public class BaseActivity extends AppCompatActivity {
             int color;
             if (id == activeTabId) {
                 color = accent != 0 ? accent : getResources().getColor(R.color.on_surface, getTheme());
-                                tab.setTypeface(tab.getTypeface(), android.graphics.Typeface.BOLD);
+                                if (tab instanceof TextView) { ((TextView) tab).setTypeface(((TextView) tab).getTypeface(), android.graphics.Typeface.BOLD); }
             } else {
                 color = getResources().getColor(R.color.text_secondary, getTheme());
                                             }
