@@ -4,9 +4,7 @@
     android:id="@+id/nav_bar_root"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="0dp"
-    android:layout_marginRight="0dp"
-    android:layout_marginTop="0dp"
+    android:layout_margin="0dp"
     android:background="@drawable/header_background"
     android:elevation="4dp"
     android:clipToOutline="true"
@@ -17,10 +15,12 @@
     android:paddingRight="16dp"
     android:minHeight="56dp">
 
+    <!-- Скрытые View для обратной совместимости -->
     <View android:id="@+id/nav_back_button" android:layout_width="0dp" android:layout_height="0dp" android:visibility="gone" />
     <TextView android:id="@+id/nav_tab_instances" android:layout_width="0dp" android:layout_height="0dp" android:visibility="gone" />
     <View android:id="@+id/nav_divider" android:layout_width="0dp" android:layout_height="0dp" android:visibility="gone" />
 
+    <!-- Логотип + название -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -45,32 +45,35 @@
             android:textStyle="bold" />
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="0dp"
+    <!-- Навигационная капсула с индикатором -->
+    <FrameLayout
+        android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:orientation="horizontal">
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="16dp"
+        android:background="@drawable/nav_pill_bg_shape"
+        android:clipToOutline="true"
+        android:outlineProvider="background">
+
+        <!-- Скользящий индикатор -->
+        <View
+            android:id="@+id/nav_indicator_view"
+            android:layout_width="44dp"
+            android:layout_height="34dp"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="3dp"
+            android:background="@drawable/nav_indicator" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:background="@drawable/nav_pill_bg_shape"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:clipToOutline="true"
-            android:outlineProvider="background">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
             <ImageView
-            <View
-                android:id="@+id/nav_indicator_view"
-                android:layout_width="44dp"
-                android:layout_height="34dp"
-                android:layout_margin="3dp"
-                android:background="@drawable/nav_indicator" />
                 android:id="@+id/nav_tab_launch"
-                android:layout_width="44dp"
-                android:layout_height="40dp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:src="@drawable/ic_home"
                 android:padding="10dp"
                 android:clickable="true"
@@ -79,8 +82,9 @@
 
             <ImageView
                 android:id="@+id/nav_tab_settings"
-                android:layout_width="44dp"
-                android:layout_height="40dp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:src="@drawable/ic_settings"
                 android:padding="10dp"
                 android:clickable="true"
@@ -89,16 +93,18 @@
 
             <ImageView
                 android:id="@+id/nav_tab_about"
-                android:layout_width="44dp"
-                android:layout_height="40dp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:src="@drawable/ic_about"
                 android:padding="10dp"
                 android:clickable="true"
                 android:focusable="true"
                 android:background="?attr/selectableItemBackground" />
         </LinearLayout>
-    </LinearLayout>
+    </FrameLayout>
 
+    <!-- Sign In + Аватар -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
