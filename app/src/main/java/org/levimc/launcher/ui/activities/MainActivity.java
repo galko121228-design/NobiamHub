@@ -585,7 +585,6 @@ import okhttp3.OkHttpClient;
         viewModel = new ViewModelProvider(this, new MainViewModelFactory(getApplication())).get(MainViewModel.class);
         apkImportManager = new ApkImportManager(this, viewModel);
 
-        initModsSection();
         initContentManagementSection();
         initMiscellaneousSection();
         initializeVersionManager();
@@ -625,12 +624,6 @@ import okhttp3.OkHttpClient;
         handleMinecraftUriLaunch();
     }
 
-    private void initModsSection() {
-        if (viewModel == null) return;
-
-
-        viewModel.getModsLiveData().observe(this, this::updateModsUI);
-    }
 
     private void updateViewModelVersion() {
         if (viewModel == null) return;
@@ -1496,18 +1489,20 @@ import okhttp3.OkHttpClient;
         }
     }
 
-    private void updateModsUI(List<Mod> mods) {
-        // Add enabled external mods
-        if (mods != null) {
-            for (Mod mod : mods) {
-                if (mod.isEnabled()) {
-                    addModNameEntry(mod.getDisplayName());
-                }
-            }
-        }
 
 
+    private void setupNavBar() {
+        setActiveNavTab(R.id.nav_tab_launch);
+        findViewById(R.id.nav_tab_launch).setOnClickListener(v -> {});
     }
 
-    private void addModNameEntry(String name) {
+    @Override
+    protected void onDestroy() {
+        unbindStorageMigrationService();
+        dismissStorageMigrationDialog(null);
+        storageMigrationExecutor.shutdownNow();
+        super.onDestroy();
+    }
+
+ }
 
