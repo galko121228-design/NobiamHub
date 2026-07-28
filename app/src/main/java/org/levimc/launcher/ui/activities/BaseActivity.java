@@ -156,13 +156,16 @@ public class BaseActivity extends AppCompatActivity {
         int accent = pm.getAccentColor();
 
         for (int id : tabIds) {
-            TextView tab = findViewById(id);
+            View tab = findViewById(id);
             if (!(tab instanceof TextView)) continue;
             if (tab == null) continue;
             int color = getResources().getColor(R.color.text_secondary, getTheme());
-            tab.setTextColor(color);
-            tab.setTypeface(tab.getTypeface(), android.graphics.Typeface.NORMAL);
-            TextViewCompat.setCompoundDrawableTintList(tab, ColorStateList.valueOf(color));
+            if (tab instanceof TextView) {
+                TextView tv = (TextView) tab;
+                tv.setTextColor(color);
+                tv.setTypeface(tv.getTypeface(), android.graphics.Typeface.NORMAL);
+                TextViewCompat.setCompoundDrawableTintList(tv, ColorStateList.valueOf(color));
+            }
         }
 
         if (pm.hasBackgroundImage()) {
