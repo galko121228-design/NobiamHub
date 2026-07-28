@@ -376,17 +376,6 @@ public class BaseActivity extends AppCompatActivity {
             }
         }
 
-        View indicator = findViewById(R.id.nav_indicator_view);
-        View activeTab = findViewById(activeTabId);
-        if (indicator != null && activeTab != null && indicator.getWidth() > 0) {
-            activeTab.post(() -> {
-                float targetX = activeTab.getLeft()
-                    + (activeTab.getWidth() - indicator.getWidth()) / 2f;
-                indicator.animate()
-                    .translationX(targetX)
-                    .setDuration(250)
-                    .setInterpolator(new android.view.animation.DecelerateInterpolator())
-                    .start();
             });
         }
     }
