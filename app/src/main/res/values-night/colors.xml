@@ -36,4 +36,6 @@
     <color name="text_primary">#FFFFFF</color>
     <color name="text_secondary">#AAAAAA</color>
     <color name="qa_icon_color">#FFFFFF</color>
+    <color name="nav_pill_bg">#2A2A2A</color>
+    <color name="nav_indicator">#3A3A3A</color>
 </resources>
