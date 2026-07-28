@@ -156,11 +156,14 @@ public class BaseActivity extends AppCompatActivity {
         int accent = pm.getAccentColor();
 
         for (int id : tabIds) {
-            View tab = findViewById(id);
+            TextView tab = findViewById(id);
             if (!(tab instanceof TextView)) continue;
             if (tab == null) continue;
             int color = getResources().getColor(R.color.text_secondary, getTheme());
-                                            }
+            tab.setTextColor(color);
+            tab.setTypeface(tab.getTypeface(), android.graphics.Typeface.NORMAL);
+            TextViewCompat.setCompoundDrawableTintList(tab, ColorStateList.valueOf(color));
+        }
 
         if (pm.hasBackgroundImage()) {
             View navRoot = findViewById(R.id.nav_bar_root);
@@ -358,25 +361,28 @@ public class BaseActivity extends AppCompatActivity {
     protected void setActiveNavTab(int activeTabId) {
         if (!navBarInjected) return;
         int[] tabIds = {
-            R.id.nav_tab_launch, R.id.nav_tab_about, R.id.nav_tab_settings
+            R.id.nav_tab_launch, R.id.nav_tab_instances,
+            R.id.nav_tab_about, R.id.nav_tab_settings
         };
 
         PersonalizationManager pm = new PersonalizationManager(this);
         int accent = pm.getAccentColor();
-        int inactiveColor = getResources().getColor(R.color.text_secondary, getTheme());
-        int activeIconColor = getResources().getColor(R.color.text_primary, getTheme());
 
         for (int id : tabIds) {
-            View tab = findViewById(id);
+            TextView tab = findViewById(id);
+            if (!(tab instanceof TextView)) continue;
             if (tab == null) continue;
-            boolean isActive = (id == activeTabId);
-            if (tab instanceof android.widget.ImageView) {
-                android.widget.ImageView iv = (android.widget.ImageView) tab;
-                iv.setImageTintList(android.content.res.ColorStateList.valueOf(isActive ? activeIconColor : inactiveColor));
+            int color;
+            if (id == activeTabId) {
+                color = accent != 0 ? accent : getResources().getColor(R.color.on_surface, getTheme());
+                tab.setTextColor(color);
+                tab.setTypeface(tab.getTypeface(), android.graphics.Typeface.BOLD);
+            } else {
+                color = getResources().getColor(R.color.text_secondary, getTheme());
+                tab.setTextColor(color);
+                tab.setTypeface(tab.getTypeface(), android.graphics.Typeface.NORMAL);
             }
-        }
-
-            });
+            TextViewCompat.setCompoundDrawableTintList(tab, ColorStateList.valueOf(color));
         }
     }
 
