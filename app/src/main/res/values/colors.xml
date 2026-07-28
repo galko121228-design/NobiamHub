@@ -14,7 +14,7 @@
     <color name="error">#F44336</color>
     <color name="on_error">#FFFFFF</color>
 
-    <color name="background">#FFFFFF</color>
+    <color name="background">#F6F7F9</color>
     <color name="surface">#FFFFFF</color>
     <color name="surface_variant">#E8F5E9</color>
     <color name="on_background">#212121</color>
