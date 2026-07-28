@@ -123,6 +123,6 @@
         android:textSize="11sp"
         android:textStyle="bold"
         android:textAllCaps="false"
-        android:visibility="gone" />
+        android:visibility="visible" />
 
 </LinearLayout>
