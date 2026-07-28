@@ -109,7 +109,6 @@ import okhttp3.OkHttpClient;
     private ActivityResultLauncher<Intent> apkImportResultLauncher;
     private ActivityResultLauncher<String> notificationPermissionLauncher;
 
-    private LinearLayout modsListContainer;
     private ContentManager contentManager;
     private TextView worldsCountText;
     private TextView resourcePacksCountText;
@@ -628,27 +627,7 @@ import okhttp3.OkHttpClient;
 
     private void initModsSection() {
         if (viewModel == null) return;
-        modsListContainer = binding.modsListContainer;
 
-        binding.manageModsButton.setOnClickListener(v -> openModsFullscreen());
-        DynamicAnim.applyPressScale(binding.manageModsButton);
-
-        org.levimc.launcher.util.PersonalizationManager pm = new org.levimc.launcher.util.PersonalizationManager(this);
-        int accent = pm.getAccentColor();
-        if (accent != 0) {
-            binding.manageModsButton.setTextColor(accent);
-            android.graphics.drawable.GradientDrawable gd = new android.graphics.drawable.GradientDrawable();
-            gd.setShape(android.graphics.drawable.GradientDrawable.RECTANGLE);
-            gd.setColor(android.graphics.Color.argb(26, android.graphics.Color.red(accent), android.graphics.Color.green(accent), android.graphics.Color.blue(accent)));
-            gd.setCornerRadius(5 * getResources().getDisplayMetrics().density);
-            gd.setStroke((int)(1 * getResources().getDisplayMetrics().density),
-                    android.graphics.Color.argb(51, android.graphics.Color.red(accent), android.graphics.Color.green(accent), android.graphics.Color.blue(accent)));
-            binding.manageModsButton.setBackground(gd);
-
-            if (binding.minecraftTitleText != null) {
-                pm.applySolidAccentText(binding.minecraftTitleText, accent);
-            }
-        }
 
         viewModel.getModsLiveData().observe(this, this::updateModsUI);
     }
@@ -1518,9 +1497,6 @@ import okhttp3.OkHttpClient;
     }
 
     private void updateModsUI(List<Mod> mods) {
-        if (binding == null || modsListContainer == null) return;
-        modsListContainer.removeAllViews();
-
         // Add enabled external mods
         if (mods != null) {
             for (Mod mod : mods) {
@@ -1534,30 +1510,4 @@ import okhttp3.OkHttpClient;
     }
 
     private void addModNameEntry(String name) {
-        TextView tv = new TextView(this);
-        tv.setText(name);
-        tv.setTextSize(android.util.TypedValue.COMPLEX_UNIT_SP, 12);
-        tv.setTextColor(androidx.core.content.ContextCompat.getColor(this, R.color.on_surface));
-        tv.setFontFeatureSettings(null);
-        tv.setTypeface(getResources().getFont(R.font.misans));
-        tv.setPadding(0, (int)(3 * getResources().getDisplayMetrics().density), 0, (int)(3 * getResources().getDisplayMetrics().density));
-        tv.setMaxLines(1);
-        tv.setEllipsize(android.text.TextUtils.TruncateAt.END);
-        modsListContainer.addView(tv);
-    }
-
-    private void setupNavBar() {
-        setActiveNavTab(R.id.nav_tab_launch);
-        findViewById(R.id.nav_tab_launch).setOnClickListener(v -> {});
-    }
-
-    @Override
-    protected void onDestroy() {
-        unbindStorageMigrationService();
-        dismissStorageMigrationDialog(null);
-        storageMigrationExecutor.shutdownNow();
-        super.onDestroy();
-    }
-
- }
 
