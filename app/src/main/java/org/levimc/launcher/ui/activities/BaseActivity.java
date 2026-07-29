@@ -154,19 +154,16 @@ public class BaseActivity extends AppCompatActivity {
 
         PersonalizationManager pm = new PersonalizationManager(this);
         int accent = pm.getAccentColor();
-        int inactiveColor = getResources().getColor(R.color.text_secondary, getTheme());
 
         for (int id : tabIds) {
             View tab = findViewById(id);
-            if (!(tab instanceof TextView)) continue;
             if (tab == null) continue;
+            if (!(tab instanceof TextView)) continue;
+            TextView tv = (TextView) tab;
             int color = getResources().getColor(R.color.text_secondary, getTheme());
-            if (tab instanceof TextView) {
-                TextView tv = (TextView) tab;
-                tv.setTextColor(color);
-                tv.setTypeface(tv.getTypeface(), android.graphics.Typeface.NORMAL);
-                TextViewCompat.setCompoundDrawableTintList(tv, ColorStateList.valueOf(color));
-            }
+            tv.setTextColor(color);
+            tv.setTypeface(tv.getTypeface(), android.graphics.Typeface.NORMAL);
+            TextViewCompat.setCompoundDrawableTintList(tv, ColorStateList.valueOf(color));
         }
 
         if (pm.hasBackgroundImage()) {
@@ -211,8 +208,6 @@ public class BaseActivity extends AppCompatActivity {
                 Intent intent = new Intent(this, MainActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(intent);
-            }
-        });
             }
         });
         findViewById(R.id.nav_tab_about).setOnClickListener(v -> {
@@ -370,7 +365,17 @@ public class BaseActivity extends AppCompatActivity {
         int accent = pm.getAccentColor();
         int inactiveColor = getResources().getColor(R.color.text_secondary, getTheme());
 
-for (int id : tabIds) {            View tab = findViewById(id);            if (tab == null) continue;            boolean isActive = (id == activeTabId);            if (tab instanceof android.widget.ImageView) {                android.widget.ImageView iv = (android.widget.ImageView) tab;                iv.setImageTintList(android.content.res.ColorStateList.valueOf(isActive ? accent : inactiveColor));            } else if (tab instanceof TextView) {                TextView tv = (TextView) tab;                tv.setTextColor(isActive ? accent : inactiveColor);            }        }
+        for (int id : tabIds) {
+            View tab = findViewById(id);
+            if (tab == null) continue;
+            boolean isActive = (id == activeTabId);
+            if (tab instanceof android.widget.ImageView) {
+                android.widget.ImageView iv = (android.widget.ImageView) tab;
+                iv.setImageTintList(android.content.res.ColorStateList.valueOf(isActive ? accent : inactiveColor));
+            } else if (tab instanceof TextView) {
+                TextView tv = (TextView) tab;
+                tv.setTextColor(isActive ? accent : inactiveColor);
+            }
         }
     }
 
