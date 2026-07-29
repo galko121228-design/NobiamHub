@@ -216,7 +216,6 @@ public class SettingsActivity extends BaseActivity {
             }
         });
 
-        SwitchMaterial switchLogcat = findViewById(R.id.switch_logcat);
         switchLogcat.setChecked(fs.isLogcatOverlayEnabled());
         switchLogcat.setOnCheckedChangeListener((btn, checked) -> {
             fs.setLogcatOverlayEnabled(checked);
@@ -412,7 +411,6 @@ public class SettingsActivity extends BaseActivity {
             ((TextView) settingsTitle).setTextColor(accent);
         }
         
-        SwitchMaterial switchLogcat = findViewById(R.id.switch_logcat);
         if (switchLogcat != null && accent != 0) {
             int[][] states = {{android.R.attr.state_checked}, {}};
             switchLogcat.setThumbTintList(new ColorStateList(states, new int[]{accent, 0xFFAAAAAA}));
