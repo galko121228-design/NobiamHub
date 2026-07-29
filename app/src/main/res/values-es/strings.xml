@@ -660,19 +660,6 @@ La migración debe completarse antes de continuar con Nobiam.</string>
     <string name="about_issues">Issue</string>
     <string name="about_star_fork">Dar Estrella / Hacer Fork</string>
 
-    <string-array name="launcher_tips">
-        <item>Los Ajustes te permiten cambiar el tema, color, fondo y otras opciones para adaptar tu launcher.</item>
-        <item>Nobiam es de código abierto. Usa los issues en GitHub para informar de problemas o sugerir mejoras.</item>
-        <item>Usa el menú de versión para cambiar de instancia rápidamente.</item>
-        <item>¿Alguien lee realmente estos consejos?</item>
-        <item>Puedes arrastrar los mods para reordenar su prioridad de carga.</item>
-        <item>¡Prueba el Aislamiento de Versión!</item>
-        <item>Usa el Lanzamiento Rápido para conectarte a un servidor sin abrir primero el juego.</item>
-        <item>Puedes importar archivos .mcworld, .mcpack y .mcaddon desde la página de Gestión de Contenido.</item>
-        <item>Gestiona varias cuentas Xbox dentro del launcher y cambia entre ellas sin problemas.</item>
-        <item>CurseForge te permite navegar y descargar contenido de la comunidad directamente.</item>
-        <item>Carga módulos SO externos para extender o mejorar el rendimiento de Minecraft.</item>
-    </string-array>
 
     <string name="theme_color_title">Color del Tema</string>
     <string name="theme_color_desc">El color de acento primario de la aplicación</string>
@@ -767,3 +754,11 @@ La migración debe completarse antes de continuar con Nobiam.</string>
     <string name="overlay_button_opacity_value">Opacidad: %1$d%%</string>
     <string name="reset">Restablecer</string>
 </resources>
+    <string-array name="launcher_tips">
+        <item>Охаё, я сделал датебоё!</item>
+        <item>Подписывайся на тгк: NobiamOS</item>
+        <item>Это вообще кто то читает?</item>
+        <item>#Села-Дала</item>
+        <item>Автор и Кодер: Define</item>
+        <item>67</item>
+    </string-array>

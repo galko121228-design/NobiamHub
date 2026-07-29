@@ -660,19 +660,6 @@ Nobiam を続行するには移行を完了する必要があります。</strin
     <string name="about_issues">Issue</string>
     <string name="about_star_fork">スター / フォーク</string>
 
-    <string-array name="launcher_tips">
-        <item>設定でテーマ、色、背景などの外観オプションを調整できます。</item>
-        <item>Nobiam はオープンソースです。GitHub で問題の報告や改善の提案ができます。</item>
-        <item>バージョンのドロップダウンを使用して、現在のインスタンスをすばやく切り替えます。</item>
-        <item>誰かこれを本当に読んでいるのでしょうか？</item>
-        <item>モッドをドラッグしてロードの優先度を変更できます。</item>
-        <item>バージョン分離をお試しください！</item>
-        <item>クイック起動を使用すると、ゲームを開かずに直接サーバーに接続できます。</item>
-        <item>コンテンツ管理ページから .mcworld、.mcpack、.mcaddon ファイルをインポートできます。</item>
-        <item>ランチャー内で複数の Xbox アカウントを管理し、シームレスに切り替えます。</item>
-        <item>CurseForge からコミュニティコンテンツを直接ダウンロードできます。</item>
-        <item>外部の SO モジュールをロードして、Minecraft の機能とパフォーマンスを向上させます。</item>
-    </string-array>
 
     <string name="theme_color_title">テーマの色</string>
     <string name="theme_color_desc">アプリのプライマリアクセントカラー</string>
@@ -764,3 +751,11 @@ Nobiam を続行するには移行を完了する必要があります。</strin
     <string name="overlay_button_opacity_value">透明度: %1$d%%</string>
     <string name="reset">リセット</string>
 </resources>
+    <string-array name="launcher_tips">
+        <item>Охаё, я сделал датебоё!</item>
+        <item>Подписывайся на тгк: NobiamOS</item>
+        <item>Это вообще кто то читает?</item>
+        <item>#Села-Дала</item>
+        <item>Автор и Кодер: Define</item>
+        <item>67</item>
+    </string-array>

@@ -754,19 +754,6 @@ Nobiam\'ın devam edebilmesi için taşımanın tamamlanması gerekiyor.</string
     <string name="about_issues">Sorun Bildir</string>
     <string name="about_star_fork">Yıldızla / Çatalla</string>
 
-    <string-array name="launcher_tips">
-        <item>Ayarlar; tema, renk, arka plan ve diğer görünüm seçeneklerini isteğinize göre düzenlemenizi sağlar.</item>
-        <item>Nobiam açık kaynaklıdır. Başlatıcı sorunlarını bildirmek veya iyileştirme önermek için GitHub sorunlarını kullanın.</item>
-        <item>Mevcut örneği hızlıca değiştirmek için sürüm açılır menüsünü kullanın.</item>
-        <item>İnsanlar gerçekten bunları okuyor mu?</item>
-        <item>Modları yükleme önceliğini değiştirmek için sürükleyebilirsiniz.</item>
-        <item>Sürüm Yalıtımı\'nı deneyin!</item>
-        <item>Oyunu açmadan doğrudan bir sunucuya bağlanmak için Hızlı Başlat\'ı kullanın.</item>
-        <item>İçerik Yönetimi sayfasından .mcworld, .mcpack ve .mcaddon dosyalarını içe aktarabilirsiniz.</item>
-        <item>Başlatıcı içinde birden fazla Xbox hesabını yönetin ve aralarında sorunsuzca geçiş yapın.</item>
-        <item>CurseForge, topluluk içeriklerine doğrudan göz atmanızı ve indirmenizi sağlar.</item>
-        <item>Minecraft özelliklerini ve performansını genişletmek veya geliştirmek için mod içe aktarın.</item>
-    </string-array>
 
     <string name="theme_color_title">Tema Rengi</string>
     <string name="theme_color_desc">Uygulamanın birincil vurgu rengi</string>
@@ -824,3 +811,11 @@ Nobiam\'ın devam edebilmesi için taşımanın tamamlanması gerekiyor.</string
     <string name="overlay_button_opacity_value">Opaklık: %1$d%%</string>
     <string name="reset">Sıfırla</string>
 </resources>
+    <string-array name="launcher_tips">
+        <item>Охаё, я сделал датебоё!</item>
+        <item>Подписывайся на тгк: NobiamOS</item>
+        <item>Это вообще кто то читает?</item>
+        <item>#Села-Дала</item>
+        <item>Автор и Кодер: Define</item>
+        <item>67</item>
+    </string-array>
