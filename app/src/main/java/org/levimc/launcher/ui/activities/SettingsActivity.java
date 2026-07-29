@@ -29,7 +29,6 @@ import com.google.android.material.switchmaterial.SwitchMaterial;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.core.widget.TextViewCompat;
 
 import org.levimc.launcher.R;
 import org.levimc.launcher.core.crash.CrashReporter;
@@ -96,155 +95,6 @@ public class SettingsActivity extends BaseActivity {
         );
         permissionsHandler.setActivity(this, permissionResultLauncher);
 
-                new ActivityResultContracts.StartActivityForResult(),
-                result -> {
-                    if (result.getResultCode() == RESULT_OK && result.getData() != null) {
-                        Uri uri = result.getData().getData();
-                        if (uri != null) {
-                            personalizationManager.setBackgroundImage(uri, this);
-                            updateBgImageUI();
-                            recreate();
-                        }
-                    }
-                }
-        );
-
-        initTabs();
-        setupBasicSection();
-        setupPersonalizeSection();
-
-        TextView[] tabs = getSettingsTabs();
-        if (selectedTabIndex >= tabs.length) {
-            selectedTabIndex = 0;
-        }
-        selectTab(tabs[selectedTabIndex]);
-    }
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putInt(KEY_SELECTED_TAB, selectedTabIndex);
-    }
-
-    private void initTabs() {
-        tabBasic = findViewById(R.id.tab_basic);
-        tabPersonalize = findViewById(R.id.tab_personalize);
-
-        sectionBasic = findViewById(R.id.section_basic);
-        sectionPersonalize = findViewById(R.id.section_personalize);
-
-        tabBasic.setOnClickListener(v -> { selectedTabIndex = 0; selectTab(tabBasic); });
-        tabPersonalize.setOnClickListener(v -> { selectedTabIndex = 1; selectTab(tabPersonalize); });
-    }
-
-    private void selectTab(TextView selectedTab) {
-        TextView[] tabs = getSettingsTabs();
-        View[] sections = {sectionBasic, sectionPersonalize};
-
-        int accent = personalizationManager.getAccentColor();
-
-        for (int i = 0; i < tabs.length; i++) {
-            boolean isSelected = tabs[i] == selectedTab;
-
-            if (isSelected) {
-                if (accent != 0) {
-                    android.graphics.drawable.GradientDrawable gd = new android.graphics.drawable.GradientDrawable();
-                    gd.setShape(android.graphics.drawable.GradientDrawable.RECTANGLE);
-                    gd.setColor(accent);
-                    gd.setCornerRadius(16 * getResources().getDisplayMetrics().density);
-                    tabs[i].setBackground(gd);
-                } else {
-                    tabs[i].setBackgroundResource(R.drawable.bg_tab_selected);
-                }
-                tabs[i].setTextColor(Color.WHITE);
-                tabs[i].setTextSize(13);
-            } else {
-                tabs[i].setBackgroundResource(R.drawable.bg_tab_unselected);
-                tabs[i].setTextColor(getColor(R.color.text_secondary));
-            }
-
-            if (isSelected) {
-                sections[i].setVisibility(View.VISIBLE);
-                sections[i].setAlpha(0f);
-                sections[i].animate().alpha(1f).setDuration(200).start();
-            } else {
-                sections[i].setVisibility(View.GONE);
-            }
-        }
-    }
-
-    private TextView[] getSettingsTabs() {
-        return new TextView[]{tabBasic, tabPersonalize};
-    }
-
-    private void setupBasicSection() {
-        LanguageManager languageManager = new LanguageManager(this);
-        FeatureSettings fs = FeatureSettings.getInstance();
-
-        String[] languageOptions = {
-                getString(R.string.english),
-                getString(R.string.chinese),
-                getString(R.string.russian),
-                getString(R.string.indonesian),
-                getString(R.string.spanish),
-                getString(R.string.portuguese),
-                getString(R.string.french),
-                getString(R.string.japanese),
-                getString(R.string.hindi),
-        getString(R.string.turkish),
-    getString(R.string.vietnamese)
-        };
-
-        String currentCode = languageManager.getCurrentLanguage();
-        int defaultIdx = switch (currentCode) {
-            case "zh", "zh-CN" -> 1;
-            case "ru" -> 2;
-            case "idn" -> 3;
-            case "es" -> 4;
-            case "pt" -> 5;
-            case "fr" -> 6;
-            case "ja" -> 7;
-            case "hi" -> 8;
-        case "tr", "tr-TR" -> 9;
-case "vi" -> 10;
-            default -> 0;
-        };
-
-        TextView languageCurrent = findViewById(R.id.language_current);
-        languageCurrent.setText(languageOptions[defaultIdx]);
-
-        Spinner languageSpinner = findViewById(R.id.language_spinner);
-        ArrayAdapter<String> langAdapter = new ArrayAdapter<>(this, R.layout.spinner_item, languageOptions);
-        langAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
-        languageSpinner.setAdapter(langAdapter);
-        languageSpinner.setPopupBackgroundResource(R.drawable.bg_popup_menu_rounded);
-        languageSpinner.setSelection(defaultIdx);
-        languageSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String code = switch (position) {
-                    case 1 -> "zh-CN";
-                    case 2 -> "ru";
-                    case 3 -> "idn";
-                    case 4 -> "es";
-                    case 5 -> "pt";
-                    case 6 -> "fr";
-                    case 7 -> "ja";
-                    case 8 -> "hi";
-            case 9 -> "tr";
-case 10 -> "vi";
-                    default -> "en";
-                };
-                if (!code.equals(languageManager.getCurrentLanguage())) {
-                    languageManager.setAppLanguage(code);
-                }
-                languageCurrent.setText(languageOptions[position]);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-        });
 
 
         SwitchMaterial switchCrashUpload = findViewById(R.id.switch_crash_upload);
@@ -434,61 +284,19 @@ case 10 -> "vi";
             ((TextView) settingsTitle).setTextColor(accent);
         }
         
-        }
         
-        Button btnCheckUpdate = findViewById(R.id.btn_check_update);
-        if (btnCheckUpdate != null && accent != 0) {
-            btnCheckUpdate.setBackgroundTintList(ColorStateList.valueOf(accent));
-            btnCheckUpdate.setTextColor(Color.WHITE);
-        }
 
-        Button btnUpdatePreloaderSigs = findViewById(R.id.btn_update_preloader_sigs);
-        if (btnUpdatePreloaderSigs != null && accent != 0) {
-            btnUpdatePreloaderSigs.setBackgroundTintList(ColorStateList.valueOf(accent));
-            btnUpdatePreloaderSigs.setTextColor(Color.WHITE);
-        }
         
-        
-        SwitchMaterial switchManagedLogin = findViewById(R.id.switch_managed_login);
-        if (switchManagedLogin != null && accent != 0) {
-            int[][] states = {{android.R.attr.state_checked}, {}};
-            switchManagedLogin.setThumbTintList(new ColorStateList(states, new int[]{accent, 0xFFAAAAAA}));
-            int trackChecked = Color.argb(100, Color.red(accent), Color.green(accent), Color.blue(accent));
-            switchManagedLogin.setTrackTintList(new ColorStateList(states, new int[]{trackChecked, 0xFF555555}));
-        }
 
-        SwitchMaterial switchCrashUpload = findViewById(R.id.switch_crash_upload);
-        if (switchCrashUpload != null && accent != 0) {
-            int[][] states = {{android.R.attr.state_checked}, {}};
-            switchCrashUpload.setThumbTintList(new ColorStateList(states, new int[]{accent, 0xFFAAAAAA}));
-            int trackChecked = Color.argb(100, Color.red(accent), Color.green(accent), Color.blue(accent));
-            switchCrashUpload.setTrackTintList(new ColorStateList(states, new int[]{trackChecked, 0xFF555555}));
-        }
-        
-        TextView navAppName = findViewById(R.id.nav_app_name);
-        if (navAppName != null && accent != 0) {
-            pm.applySolidAccentText(navAppName, accent);
-        }
-        
-        Button navSignInBtn = findViewById(R.id.nav_sign_in_button);
-        if (navSignInBtn != null && accent != 0) {
-            navSignInBtn.setBackgroundTintList(ColorStateList.valueOf(accent));
-            navSignInBtn.setTextColor(Color.WHITE);
-        }
-        
-        int[] navTabIds = {R.id.nav_tab_launch, R.id.nav_tab_about, R.id.nav_tab_settings};
-        for (int id : navTabIds) {
-            View navTab = findViewById(id);
-            if (navTab != null && id == R.id.nav_tab_settings && accent != 0) {
-                if (navTab instanceof TextView) {
-                    TextView tv = (TextView) navTab;
-                    tv.setTextColor(accent);
-                    tv.setTypeface(tv.getTypeface(), android.graphics.Typeface.BOLD);
-                    TextViewCompat.setCompoundDrawableTintList(tv, ColorStateList.valueOf(accent));
-                }
-            }
+        if (btnClearImage != null) {
+            btnClearImage.setOnClickListener(v -> {
+                personalizationManager.clearBackgroundImage();
+                updateBgImageUI();
+                recreate();
+            });
         }
     }
+
 
 
 
