@@ -783,7 +783,6 @@
     <string name="overlay_button_size_value">Размер: %1$ddp</string>
     <string name="overlay_button_opacity_value">Непрозрачность: %1$d%%</string>
     <string name="reset">Сбросить</string>
-</resources>
     <string-array name="launcher_tips">
         <item>Охаё, я сделал датебоё!</item>
         <item>Подписывайся на тгк: NobiamOS</item>
@@ -792,3 +791,4 @@
         <item>Автор и Кодер: Define</item>
         <item>67</item>
     </string-array>
+</resources>

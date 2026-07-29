@@ -810,7 +810,6 @@ Nobiam\'ın devam edebilmesi için taşımanın tamamlanması gerekiyor.</string
     <string name="overlay_button_size_value">Boyut: %1$ddp</string>
     <string name="overlay_button_opacity_value">Opaklık: %1$d%%</string>
     <string name="reset">Sıfırla</string>
-</resources>
     <string-array name="launcher_tips">
         <item>Охаё, я сделал датебоё!</item>
         <item>Подписывайся на тгк: NobiamOS</item>
@@ -819,3 +818,4 @@ Nobiam\'ın devam edebilmesi için taşımanın tamamlanması gerekiyor.</string
         <item>Автор и Кодер: Define</item>
         <item>67</item>
     </string-array>
+</resources>

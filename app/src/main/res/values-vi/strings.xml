@@ -796,7 +796,6 @@ Quá trình chuyển đổi phải hoàn tất trước khi Nobiam có thể ti�
     <string name="overlay_button_size_value">Kích thước: %1$ddp</string>
     <string name="overlay_button_opacity_value">Độ mờ: %1$d%%</string>
     <string name="reset">Đặt lại</string>
-</resources>
     <string-array name="launcher_tips">
         <item>Охаё, я сделал датебоё!</item>
         <item>Подписывайся на тгк: NobiamOS</item>
@@ -805,3 +804,4 @@ Quá trình chuyển đổi phải hoàn tất trước khi Nobiam có thể ti�
         <item>Автор и Кодер: Define</item>
         <item>67</item>
     </string-array>
+</resources>

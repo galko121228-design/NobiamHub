@@ -776,7 +776,6 @@ Migrasi harus selesai sebelum Nobiam dapat melanjutkan.</string>
     <string name="overlay_button_size_value">Ukuran: %1$ddp</string>
     <string name="overlay_button_opacity_value">Opasitas: %1$d%%</string>
     <string name="reset">Reset</string>
-</resources>
     <string-array name="launcher_tips">
         <item>Охаё, я сделал датебоё!</item>
         <item>Подписывайся на тгк: NobiamOS</item>
@@ -785,3 +784,4 @@ Migrasi harus selesai sebelum Nobiam dapat melanjutkan.</string>
         <item>Автор и Кодер: Define</item>
         <item>67</item>
     </string-array>
+</resources>
