@@ -29,7 +29,6 @@ import org.levimc.launcher.R;
 import org.levimc.launcher.core.crash.CrashReporter;
 import org.levimc.launcher.settings.FeatureSettings;
 import org.levimc.launcher.ui.animation.DynamicAnim;
-import org.levimc.launcher.ui.dialogs.LogcatOverlayManager;
 import org.levimc.launcher.util.LanguageManager;
 import org.levimc.launcher.util.PermissionsHandler;
 import org.levimc.launcher.util.PersonalizationManager;
@@ -161,8 +160,8 @@ public class SettingsActivity extends BaseActivity {
                 getString(R.string.french),
                 getString(R.string.japanese),
                 getString(R.string.hindi),
-		        getString(R.string.turkish),
-			    getString(R.string.vietnamese)
+                getString(R.string.turkish),
+                getString(R.string.vietnamese)
         };
 
         String currentCode = languageManager.getCurrentLanguage();
@@ -175,8 +174,8 @@ public class SettingsActivity extends BaseActivity {
             case "fr" -> 6;
             case "ja" -> 7;
             case "hi" -> 8;
-	        case "tr", "tr-TR" -> 9;
-			case "vi" -> 10;
+            case "tr", "tr-TR" -> 9;
+            case "vi" -> 10;
             default -> 0;
         };
 
@@ -201,8 +200,8 @@ public class SettingsActivity extends BaseActivity {
                     case 6 -> "fr";
                     case 7 -> "ja";
                     case 8 -> "hi";
-		            case 9 -> "tr";
-					case 10 -> "vi";
+                    case 9 -> "tr";
+                    case 10 -> "vi";
                     default -> "en";
                 };
                 if (!code.equals(languageManager.getCurrentLanguage())) {
@@ -214,16 +213,6 @@ public class SettingsActivity extends BaseActivity {
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
             }
-        });
-
-        SwitchMaterial switchLogcat = findViewById(R.id.switch_logcat);
-        switchLogcat.setChecked(fs.isLogcatOverlayEnabled());
-        switchLogcat.setOnCheckedChangeListener((btn, checked) -> {
-            fs.setLogcatOverlayEnabled(checked);
-            try {
-                LogcatOverlayManager mgr = LogcatOverlayManager.getInstance();
-                if (mgr != null) mgr.refreshVisibility();
-            } catch (Throwable ignored) {}
         });
 
         SwitchMaterial switchCrashUpload = findViewById(R.id.switch_crash_upload);
@@ -285,9 +274,9 @@ public class SettingsActivity extends BaseActivity {
             textDark.setTextColor(currentMode == 2 ? selectedColor : getColor(R.color.on_surface));
         }
 
-        if (iconSystem != null) iconSystem.setImageTintList(android.content.res.ColorStateList.valueOf(currentMode == 0 ? selectedColor : unselectedColor));
-        if (iconLight != null) iconLight.setImageTintList(android.content.res.ColorStateList.valueOf(currentMode == 1 ? selectedColor : unselectedColor));
-        if (iconDark != null) iconDark.setImageTintList(android.content.res.ColorStateList.valueOf(currentMode == 2 ? selectedColor : unselectedColor));
+        if (iconSystem != null) iconSystem.setImageTintList(ColorStateList.valueOf(currentMode == 0 ? selectedColor : unselectedColor));
+        if (iconLight != null) iconLight.setImageTintList(ColorStateList.valueOf(currentMode == 1 ? selectedColor : unselectedColor));
+        if (iconDark != null) iconDark.setImageTintList(ColorStateList.valueOf(currentMode == 2 ? selectedColor : unselectedColor));
     }
 
     private void setupColorPicker() {
@@ -392,34 +381,25 @@ public class SettingsActivity extends BaseActivity {
 
             container.addView(row);
         }
-
     }
 
     private void refreshColorPickerInPlace() {
         setupColorPicker();
         PersonalizationManager pm = new PersonalizationManager(this);
         int accent = pm.getAccentColor();
-        
+
         pm.applyToActivity(this);
 
         refreshThemeSelectionUI();
-        
+
         TextView[] tabs = getSettingsTabs();
         selectTab(tabs[selectedTabIndex]);
-        
+
         View settingsTitle = findViewById(R.id.settings_title);
         if (settingsTitle instanceof TextView && accent != 0) {
             ((TextView) settingsTitle).setTextColor(accent);
         }
-        
-        SwitchMaterial switchLogcat = findViewById(R.id.switch_logcat);
-        if (switchLogcat != null && accent != 0) {
-            int[][] states = {{android.R.attr.state_checked}, {}};
-            switchLogcat.setThumbTintList(new ColorStateList(states, new int[]{accent, 0xFFAAAAAA}));
-            int trackChecked = Color.argb(100, Color.red(accent), Color.green(accent), Color.blue(accent));
-            switchLogcat.setTrackTintList(new ColorStateList(states, new int[]{trackChecked, 0xFF555555}));
-        }
-        
+
         SwitchMaterial switchManagedLogin = findViewById(R.id.switch_managed_login);
         if (switchManagedLogin != null && accent != 0) {
             int[][] states = {{android.R.attr.state_checked}, {}};
@@ -435,25 +415,27 @@ public class SettingsActivity extends BaseActivity {
             int trackChecked = Color.argb(100, Color.red(accent), Color.green(accent), Color.blue(accent));
             switchCrashUpload.setTrackTintList(new ColorStateList(states, new int[]{trackChecked, 0xFF555555}));
         }
-        
+
         TextView navAppName = findViewById(R.id.nav_app_name);
         if (navAppName != null && accent != 0) {
             pm.applySolidAccentText(navAppName, accent);
         }
-        
+
         Button navSignInBtn = findViewById(R.id.nav_sign_in_button);
         if (navSignInBtn != null && accent != 0) {
             navSignInBtn.setBackgroundTintList(ColorStateList.valueOf(accent));
             navSignInBtn.setTextColor(Color.WHITE);
         }
-        
-        int[] navTabIds = {R.id.nav_tab_launch, R.id.nav_tab_instances, R.id.nav_tab_about, R.id.nav_tab_settings};
+
+        int[] navTabIds = {R.id.nav_tab_launch, R.id.nav_tab_about, R.id.nav_tab_settings};
         for (int id : navTabIds) {
-            TextView navTab = findViewById(id);
+            View navTab = findViewById(id);
             if (navTab != null && id == R.id.nav_tab_settings && accent != 0) {
-                navTab.setTextColor(accent);
-                navTab.setTypeface(navTab.getTypeface(), android.graphics.Typeface.BOLD);
-                androidx.core.widget.TextViewCompat.setCompoundDrawableTintList(navTab, ColorStateList.valueOf(accent));
+                if (navTab instanceof TextView) {
+                    TextView tv = (TextView) navTab;
+                    tv.setTextColor(accent);
+                    tv.setTypeface(tv.getTypeface(), android.graphics.Typeface.BOLD);
+                }
             }
         }
     }
