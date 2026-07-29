@@ -47,11 +47,6 @@
                         android:text="@string/not_found_version"
                         android:textColor="@color/text_secondary"
                         android:textSize="13sp" />
-    <ImageButton
-        android:id="@+id/edit_options_button"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:visibility="gone" />
                 </LinearLayout>
 
                 <Button
@@ -66,11 +61,6 @@
                     android:textAllCaps="false"
                     app:cornerRadius="20dp"
                     android:paddingHorizontal="16dp" />
-    <ImageButton
-        android:id="@+id/edit_options_button"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:visibility="gone" />
             </LinearLayout>
 
             <LinearLayout
@@ -97,11 +87,6 @@
                     android:id="@+id/storage_type_spinner"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
-    <ImageButton
-        android:id="@+id/edit_options_button"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:visibility="gone" />
             </LinearLayout>
 
             <LinearLayout
@@ -137,11 +122,6 @@
                         android:textColor="@color/on_surface"
                         android:textSize="13sp"
                         android:textStyle="bold" />
-    <ImageButton
-        android:id="@+id/edit_options_button"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:visibility="gone" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -171,11 +151,6 @@
                         android:textColor="@color/on_surface"
                         android:textSize="13sp"
                         android:textStyle="bold" />
-    <ImageButton
-        android:id="@+id/edit_options_button"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:visibility="gone" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -205,17 +180,7 @@
                         android:textColor="@color/on_surface"
                         android:textSize="13sp"
                         android:textStyle="bold" />
-    <ImageButton
-        android:id="@+id/edit_options_button"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:visibility="gone" />
                 </LinearLayout>
-    <ImageButton
-        android:id="@+id/edit_options_button"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:visibility="gone" />
             </LinearLayout>
 
             <LinearLayout
@@ -250,11 +215,6 @@
                         android:textColor="@color/on_surface"
                         android:textSize="13sp"
                         android:textStyle="bold" />
-    <ImageButton
-        android:id="@+id/edit_options_button"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:visibility="gone" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -284,11 +244,6 @@
                         android:textColor="@color/on_surface"
                         android:textSize="13sp"
                         android:textStyle="bold" />
-    <ImageButton
-        android:id="@+id/edit_options_button"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:visibility="gone" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -318,24 +273,10 @@
                         android:textColor="@color/on_surface"
                         android:textSize="13sp"
                         android:textStyle="bold" />
-    <ImageButton
-        android:id="@+id/edit_options_button"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:visibility="gone" />
                 </LinearLayout>
-    <ImageButton
-        android:id="@+id/edit_options_button"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:visibility="gone" />
             </LinearLayout>
 
-    <ImageButton
-        android:id="@+id/edit_options_button"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:visibility="gone" />
+    <ImageButton android:id="@+id/edit_options_button" android:layout_width="0dp" android:layout_height="0dp" android:visibility="gone" />
         </LinearLayout>
     </ScrollView>
 </FrameLayout>
