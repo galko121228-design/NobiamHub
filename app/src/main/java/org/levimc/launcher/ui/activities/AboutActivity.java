@@ -45,6 +45,11 @@ private void setupLinks() {
             });
         }
     }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setActiveNavTab(R.id.nav_tab_about);
+    }
     private void setupNavBar() {
         setActiveNavTab(R.id.nav_tab_about);
         findViewById(R.id.nav_tab_about).setOnClickListener(v -> {});

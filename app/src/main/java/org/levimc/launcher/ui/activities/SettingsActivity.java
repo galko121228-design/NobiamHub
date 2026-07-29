@@ -440,6 +440,11 @@ public class SettingsActivity extends BaseActivity {
         }
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setActiveNavTab(R.id.nav_tab_settings);
+    }
     private void setupNavBar() {
         setActiveNavTab(R.id.nav_tab_settings);
         findViewById(R.id.nav_tab_settings).setOnClickListener(v -> {});
